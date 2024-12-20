@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiuLian: HEAD と TAIL</title>
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="LiuLian: HEAD と TAIL">
+<meta property="og:image" content="https://kobalab.net/liulian/css/icon.png">
+<link rel="icon" href="../css/icon.png">
+<link rel="apple-touch-icon" href="../css/icon.png">
+<link rel="stylesheet" type="text/css" href="../css/liulian.css">
+<style>
+body { max-width: 900px; }
+a[target]::after           { content: ' ⧉'; }
+#l-footer a[target]::after { content: '';    }
+
+dt { font-family: Verdana; }
+</style>
+</head>
+<body>
+<div id="l-toolbar">
+<a class="l-home" href="../index.htm"><img src="../css/liulian.png" alt="ホーム"></a>
+<ul>
+<li><a href="head%26tail-1.html?cmd=login">ログイン</a></li>
+</ul>
+<hr>
+</div>
+<link rel="author" href="http://www.hatena.ne.jp/xlc/">
+
+<h1>HEAD と TAIL</h1>
+
+<div class="l-contents">
+<ul>
+<li><a href="#l-sec.1">機能概要</a></li>
+<li><a href="#l-sec.2">設定例</a></li>
+</ul>
+</div>
+
+<h2 id="l-sec.1">機能概要</h2>
+
+<p>複数のページで共通するスタイル、あるいはサイドバーの表示など文書を部品化する際には <a href="module.html#include">include モジュール</a> を使うことができますが、特定のフォルダ配下のファイルすべてに適用したい場合は <kbd>HEAD</kbd> および <kbd>TAIL</kbd> というファイルを使用することができます。</p>
+
+<dl>
+<dt>HEAD</dt>
+<dd>そのフォルダのすべての <a href="text-liulian.html">LiuLian形式テキスト</a> の先頭に記述内容が挿入されます。そのフォルダに <kbd>HEAD</kbd> がない場合、親フォルダの <kbd>HEAD</kbd> が適用されます。</dd>
+<dt>TAIL</dt>
+<dd><kbd>HEAD</kbd> 同様ですが、末尾に挿入されます。</dd>
+</dl>
+
+<p>Markdown記法の場合は <kbd>HEAD.md</kbd>、<kbd>TAIL.md</kbd> を同様に使うことができます。</p>
+
+<h2 id="l-sec.2">設定例</h2>
+
+<p>共通の <a href="module.html#style">スタイル</a> を設定します。</p>
+
+<pre>#style&lt;&lt;__STYLE__
+body { max-width: 900px; }
+__STYLE__</pre>
+
+<p><a href="module.html#title">タイトル</a> にサイト名を追加します。</p>
+
+<pre>#title(LiuLian: $$)</pre>
+
+<p>親フォルダの <kbd>HEAD</kbd> を引き継いで設定を追加します。</p>
+
+<pre>#include(../HEAD)
+
+追加する設定...</pre>
+
+<p>トップフォルダの <kbd>HEAD</kbd> を引き継いで設定を追加します。</p>
+
+<pre>#include(/HEAD)
+
+追加する設定...</pre>
+
+<p>内容が空の <kbd>HEAD</kbd> / <kbd>TAIL</kbd> を置けば、親フォルダの設定をすべて消すことができます。</p>
+
+<div class="l-nav">
+<div class="l-nav-prev"><a href="readme%26index.html">README と index</a></div>
+<div class="l-nav-next"><a href="proxy-setting.html">リバースプロキシを使う</a></div>
+<div class="l-nav-top"><a href="../index.htm#documents">目次</a></div>
+</div>
+
+<div id="l-footer">
+<hr>
+<address><a href="../index.htm">LiuLian/1.1.11</a></address>
+</div>
+</body>
+</html>

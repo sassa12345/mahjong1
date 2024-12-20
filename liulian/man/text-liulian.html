@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiuLian: LiuLian記法</title>
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="LiuLian: LiuLian記法">
+<meta property="og:image" content="https://kobalab.net/liulian/css/icon.png">
+<link rel="icon" href="../css/icon.png">
+<link rel="apple-touch-icon" href="../css/icon.png">
+<link rel="stylesheet" type="text/css" href="../css/liulian.css">
+<style>
+body { max-width: 900px; }
+a[target]::after           { content: ' ⧉'; }
+#l-footer a[target]::after { content: '';    }
+
+.example {
+    padding: 0px 1em;
+    border: solid 1px #ccc;
+    border-radius: 8px;
+}
+.example > * { margin: 1em 0px; }
+.l-contents ul li:nth-child(4) {
+    display: none;
+}
+</style>
+</head>
+<body>
+<div id="l-toolbar">
+<a class="l-home" href="../index.htm"><img src="../css/liulian.png" alt="ホーム"></a>
+<ul>
+<li><a href="text-liulian-1.html?cmd=login">ログイン</a></li>
+</ul>
+<hr>
+</div>
+<link rel="author" href="http://www.hatena.ne.jp/xlc/">
+
+<h1>LiuLian記法</h1>
+
+<div class="l-contents">
+<ul>
+<li><a href="#p">基本ルール</a></li>
+<li><a href="#title">タイトル</a></li>
+<li><a href="#h">見出し</a></li>
+<li><a href="#l-sec.4">大見出し</a>
+<ul>
+<li><a href="#l-sec.5">中見出し</a>
+<ul>
+<li><a href="#l-sec.6">小見出し</a>
+<ul>
+<li><a href="#section">さらに小さな見出し</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#hr">水平線</a></li>
+<li><a href="#li">箇条書き</a></li>
+<li><a href="#dl">用語説明</a></li>
+<li><a href="#table">表</a></li>
+<li><a href="#pre">整形済みテキスト</a></li>
+<li><a href="#blockquote">引用</a></li>
+<li><a href="#footnote">脚注</a></li>
+<li><a href="#decoration">文字飾り</a></li>
+<li><a href="#link">リンク</a></li>
+<li><a href="#text-align">左寄せ、右寄せ、センタリング</a></li>
+<li><a href="#comment">コメントアウト</a></li>
+<li><a href="#module">モジュール</a></li>
+</ul>
+</div>
+
+<h2 id="p">基本ルール</h2>
+
+<ul>
+<li>通常は入力した文字がそのまま出力されます。HTMLのタグは使えません。</li>
+<li>連続した行は連結されます。空行が段落 <strong>(<code>p</code>)</strong> の区切りになります。</li>
+<li>改行 <strong>(<code>br</code>)</strong> したいときは、行末を <kbd>~</kbd> で終わらせてください。</li>
+<li><kbd>~</kbd> で始まる行は段落の区切りになります。
+他のルールに割当てられている文字で段落を始めたいときに便利です。</li>
+<li><kbd>\</kbd> で終わる行は処理前に次の行と連結されます。
+1行で書くべきテキストが長くなってしまったときに便利です。</li>
+<li>行頭の <kbd>\</kbd> は捨てられます。他のルールに割り当てられている文字で段落を継続したいときに使えます。 </li>
+</ul>
+
+<pre>これは段落です。
+
+連続した行は
+連結されます。
+
+改行したいときは、~
+こう書きます。
+~* これも段落の始めです。
+\* 行頭の \ は捨てられます。</pre>
+
+<div class="example">
+<p>これは段落です。</p>
+
+<p>連続した行は
+連結されます。</p>
+
+<p>改行したいときは、<br>
+こう書きます。</p>
+
+<p>* これも段落の始めです。
+* 行頭の \ は捨てられます。</p>
+</div>
+
+<h2 id="title">タイトル</h2>
+
+<ul>
+<li><kbd>!</kbd> で始まる行はページのタイトル <strong>(<code>h1</code>, <code>title</code>)</strong> になります。</li>
+<li>このページのタイトルは <kbd>LiuLian記法</kbd> です。</li>
+</ul>
+
+<pre>! LiuLian記法</pre>
+
+<h2 id="h">見出し</h2>
+
+<ul>
+<li><kbd>*</kbd> で始まる行は見出し <strong>(<code>h2</code> ~ <code>h6</code>)</strong> になります。</li>
+<li><kbd>*</kbd> の数が多いほど、小さい見出しになります。</li>
+<li>見出しには自動的にアンカーが設定されます。
+アンカー名を指定したいときは、行末に <kbd>[<em>アンカー名</em>]</kbd> の形式で記述します。</li>
+</ul>
+
+<pre>* 大見出し
+** 中見出し
+*** 小見出し
+**** さらに小さな見出し [section]</pre>
+
+<div class="example">
+<h2 id="l-sec.4">大見出し</h2>
+
+<h3 id="l-sec.5">中見出し</h3>
+
+<h4 id="l-sec.6">小見出し</h4>
+
+<h5 id="section">さらに小さな見出し</h5>
+</div>
+
+<h2 id="hr">水平線</h2>
+
+<ul>
+<li><kbd>-</kbd> だけの行( - はいくつあってもよい)は水平線 <strong>(<code>hr</code>)</strong> になります。</li>
+</ul>
+
+<pre>--</pre>
+
+<div class="example">
+<hr>
+</div>
+
+<h2 id="li">箇条書き</h2>
+
+<ul>
+<li><kbd>-</kbd> で始まる行は数字なしの箇条書き <strong>(<code>ul</code>)</strong> になります。</li>
+<li><kbd>+</kbd> で始まる行は数字つきの箇条書き <strong>(<code>ol</code>)</strong> になります。</li>
+<li>箇条書きは入れ子にすることもできます。</li>
+<li>連続した行は連結されるので、長い箇条書きを書くこともできます。</li>
+</ul>
+
+<pre>- 箇条書き
+++ 入れ子にすることもできます
+++ こんなふうに
+- 連続した行は
+連結されます</pre>
+
+<div class="example">
+<ul>
+<li>箇条書き
+<ol>
+<li>入れ子にすることもできます</li>
+<li>こんなふうに</li>
+</ol></li>
+<li>連続した行は
+連結されます</li>
+</ul>
+</div>
+
+<h2 id="dl">用語説明</h2>
+
+<ul>
+<li><kbd>:</kbd> で始まる行が用語 <strong>(<code>dt</code>)</strong>、それに続く行が説明文 <strong>(<code>dd</code>)</strong> になります。</li>
+<li>説明文の連続した行は連結されます。</li>
+<li>説明中に段落区切りを入れたいときは、<kbd>:</kbd> だけの行をはさんでください。</li>
+</ul>
+
+<pre>:用語A
+用語Aの説明。
+:用語B
+用語Bの説明。
+続けて書く。
+:
+段落を区切る。</pre>
+
+<div class="example">
+<dl>
+<dt>用語A</dt>
+<dd>用語Aの説明。</dd>
+<dt>用語B</dt>
+<dd>用語Bの説明。
+続けて書く。</dd>
+<dd>段落を区切る。</dd>
+</dl>
+</div>
+
+<h2 id="table">表</h2>
+
+<ul>
+<li><kbd>|</kbd> で始まる行は表 <strong>(<code>table</code>)</strong> になります。</li>
+<li><kbd>|</kbd> がセル <strong>(<code>td</code>)</strong> の区切りです。</li>
+<li><kbd>~</kbd> で始まるセルは、テーブルヘッダ <strong>(<code>th</code>)</strong> になります。</li>
+<li><kbd>-</kbd> で始まるセルは左のセルと、<kbd>^</kbd> で始まるセルは上のセルと結合されます。</li>
+<li><kbd>&lt;</kbd> で始まるセルはセル内の文字を左寄せ、<kbd>&gt;</kbd> で始まるセルは右寄せ、<kbd>=</kbd> で始まるセルはセンタリングされます。</li>
+<li><kbd>.class</kbd> の形式でCSS用のclassを指定できます。</li>
+<li><kbd>#ff8</kbd> <kbd>#ccffff</kbd> といった16進数形式で背景色を指定できます。</li>
+</ul>
+
+<pre>|~ヘッダ  |~&lt;ヘッダ1      |-             |~&gt;ヘッダ2      |-             |
+|^        |~ ヘッダ 1-A   |~ ヘッダ 1-B  |~ ヘッダ 2-A   |~ ヘッダ 2-B  |
+|~本文    |&lt;#ffc 左       |=#fcf 中央    |-              |&gt;#cff 右      |
+|^        |デフォルトは左寄せです。                               |-|-|-|
+|^        |.class1.class2#ccf classと背景色はこの順に指定します。 |-|-|-|</pre>
+
+<div class="example">
+<table>
+<tr><th rowspan="2">ヘッダ  </th><th colspan="2" style="text-align:left">ヘッダ1      </th><th colspan="2" style="text-align:right">ヘッダ2      </th></tr>
+<tr><th> ヘッダ 1-A   </th><th> ヘッダ 1-B  </th><th> ヘッダ 2-A   </th><th> ヘッダ 2-B  </th></tr>
+<tr><th rowspan="3">本文    </th><td style="text-align:left;background:#ffc"> 左       </td><td colspan="2" style="text-align:center;background:#fcf"> 中央    </td><td style="text-align:right;background:#cff"> 右      </td></tr>
+<tr><td colspan="4">デフォルトは左寄せです。                               </td></tr>
+<tr><td colspan="4" class="class1 class2" style="background:#ccf"> classと背景色はこの順に指定します。 </td></tr>
+</table>
+</div>
+
+<h2 id="pre">整形済みテキスト</h2>
+
+<ul>
+<li>空白かタブで始まる行は整形済みテキスト <strong>(<code>pre</code>)</strong> になります。</li>
+<li><kbd>&gt;|</kbd> だけの行と <kbd>|&lt;</kbd> だけの行にはさまれた行も整形済みテキストになります。</li>
+</ul>
+
+<pre>&gt;|
+#include &lt;stdio.h&gt;
+
+main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}
+|&lt;</pre>
+
+<div class="example">
+<pre>#include &lt;stdio.h&gt;
+
+main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</pre>
+</div>
+
+<ul>
+<li><kbd>&gt;|<strong>JavaScript</strong></kbd> のように言語を指定するとシンタックス・ハイライトされます。</li>
+</ul>
+
+<pre>&gt;|c
+#include &lt;stdio.h&gt;
+
+main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}
+|&lt;</pre>
+
+<div class="example">
+<pre><code><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+main() {
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello, world!\n&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}</code></pre>
+</div>
+
+<ul>
+<li><kbd>&gt;||</kbd> だけの行と <kbd>||&lt;</kbd> だけの行にはさむと、整形済みテキストの中でも<a href="#decoration">文字飾り</a>と
+<a href="module.html#inline">インラインモジュール</a>が使えます。</li>
+</ul>
+
+<pre>&gt;||
+&amp;color(blue){#include}; &amp;color(red){&lt;stdio.h&gt;};
+
+main() {
+    printf(&amp;color(red){&quot;Hello, world!\n&quot;};);
+    **return** 0;
+}
+||&lt;</pre>
+
+<div class="example">
+<pre><span style="color:blue;">#include</span> <span style="color:red;">&lt;stdio.h&gt;</span>
+
+main() {
+    printf(<span style="color:red;">&quot;Hello, world!\n&quot;</span>);
+    <strong>return</strong> 0;
+}</pre>
+</div>
+
+<h2 id="blockquote">引用</h2>
+
+<ul>
+<li><kbd>&gt;&gt;</kbd> だけの行と <kbd>&lt;&lt;</kbd> だけの行にはさまれた行は引用 <strong>(<code>blockquote</code>)</strong> になります。</li>
+<li>引用は入れ子にできます。</li>
+</ul>
+
+<pre>&gt;&gt;
+これは引用です。
+~段落区切りもできます。
+- 箇条書きもOK
+&gt;&gt;
+これは引用の入れ子です。
+&lt;&lt;
+&lt;&lt;</pre>
+
+<div class="example">
+<blockquote>
+<p>これは引用です。</p>
+
+<p>段落区切りもできます。</p>
+
+<ul>
+<li>箇条書きもOK</li>
+</ul>
+
+<blockquote>
+<p>これは引用の入れ子です。</p>
+</blockquote>
+</blockquote>
+</div>
+
+<h2 id="footnote">脚注</h2>
+
+<ul>
+<li><kbd>((</kbd> と
+<kbd>))</kbd> ではさまれた文字は脚注となります。</li>
+</ul>
+
+<pre>ここに脚注をつけます。((これが脚注です))</pre>
+
+<div class="example">
+<p>ここに脚注をつけます。<sup class="l-footnote"><a id="l-noteref.1" href="#l-footnote.1" title="これが脚注です">*1</a></sup></p>
+</div>
+
+<h2 id="decoration">文字飾り</h2>
+
+<ul>
+<li><kbd>'</kbd> 2個ではさまれた文字は、<em>斜体</em> <strong>(<code>em</code>)</strong> で表示されます。</li>
+<li><kbd>*</kbd> 2個ではさまれた文字は、<strong>太字</strong> <strong>(<code>strong</code>)</strong> で表示されます。</li>
+<li><kbd>%</kbd> 2個ではさまれた文字には、<del>字消し線</del> <strong>(<code>del</code>)</strong>が引かれます。</li>
+<li><kbd>`</kbd> 2個ではさまれた文字は、固定幅フォントで表示 <strong>(<code>code</code>)</strong> されます。</li>
+<li><kbd>`</kbd> 3個ではさまれた文字は、固定幅フォントで表示の上、背景色が設定されます。<strong>(<code>kbd</code>)</strong></li>
+</ul>
+
+<pre>''斜体'' **太字** %%字消し線%% ``fixed`` ```fixed &amp; background```</pre>
+
+<div class="example">
+<p><em>斜体</em> <strong>太字</strong> <del>字消し線</del> <code>fixed</code> <kbd>fixed &amp; background</kbd></p>
+</div>
+
+<h2 id="link">リンク</h2>
+
+<ul>
+<li>URLやメールアドレスは自動的にリンク <strong>(<code>a</code>)</strong> になります。</li>
+<li>リンクにしたくないときは、<kbd>{{</kbd> と
+<kbd>}}</kbd> ではさみます。</li>
+<li><kbd>[[</kbd> と
+<kbd>]]</kbd> ではさむと相対パスのリンクを設定できます。</li>
+</ul>
+
+<pre>- http://www.google.co.jp/ - URL
+- user@host.domain - メールアドレス
+- mailto:user@host.domain - mailto: をつけてもOK
+- {{http://host.domain/}} - これはリンクにならない
+- [[module]] - 相対パス1
+- [[モジュール|./module]] - 相対パス2
+- [[LiuLian|/]] - / で始まるパスはLiuLianのベースディレクトリからの相対パスと解釈
+- [[Google|http://www.google.co.jp/]] - こういう書き方もOK</pre>
+
+<div class="example">
+<ul>
+<li><a href="http://www.google.co.jp/" target="_blank">http://www.google.co.jp/</a> - URL</li>
+<li><a href="mailto:user@host.domain">user@host.domain</a> - メールアドレス</li>
+<li><a href="mailto:user@host.domain">mailto:user@host.domain</a> - mailto: をつけてもOK</li>
+<li>http://host.domain/ - これはリンクにならない</li>
+<li><a href="module.html">module</a> - 相対パス1</li>
+<li><a href="module.html">モジュール</a> - 相対パス2</li>
+<li><a href="../index.htm">LiuLian</a> - / で始まるパスはLiuLianのベースディレクトリからの相対パスと解釈</li>
+<li><a href="http://www.google.co.jp/" target="_blank">Google</a> - こういう書き方もOK</li>
+</ul>
+</div>
+
+<h2 id="text-align">左寄せ、右寄せ、センタリング</h2>
+
+<ul>
+<li><kbd>&gt;</kbd> で始まる段落は右寄せになります。</li>
+<li><kbd>=</kbd> で始まる段落はセンタリングされます。</li>
+<li><kbd>&lt;</kbd> で始まる段落は左寄せになります(が、使いますかね)。</li>
+</ul>
+
+<pre>&gt;右寄せ
+=センタリング
+&lt;左寄せ</pre>
+
+<div class="example">
+<p style="text-align: right">右寄せ</p>
+
+<p style="text-align: center">センタリング</p>
+
+<p style="text-align: left">左寄せ</p>
+</div>
+
+<h2 id="comment">コメントアウト</h2>
+
+<ul>
+<li><kbd>//</kbd> で始まる行は表示されません。</li>
+<li><kbd>/*</kbd> で始まる行と <kbd>*/</kbd> だけの行にはさまれた行も表示されません。</li>
+<li><kbd>//-</kbd> や <kbd>/**</kbd> で始めると、コメントをHTML中に残せます。</li>
+</ul>
+
+<pre>// この行は削除されます。
+/*
+この行も削除されます。
+*/
+//- これはコメントとして残ります
+/**
+  これもコメントとして残ります。
+*/</pre>
+
+<!-- これはコメントとして残ります -->
+<!-- 
+  これもコメントとして残ります。
+-->
+
+<h2 id="module">モジュール</h2>
+
+<p><a href="module.html">モジュール</a> を使用するとさらに細かい指定ができます。</p>
+
+<div class="l-nav">
+<div class="l-nav-prev"><a href="contents.html">コンテンツ作成</a></div>
+<div class="l-nav-next"><a href="module.html">モジュール</a></div>
+<div class="l-nav-top"><a href="../index.htm#documents">目次</a></div>
+</div>
+
+<div class="l-footnote">
+<ol>
+<li><a id="l-footnote.1" href="#l-noteref.1">^</a> これが脚注です</li>
+</ol>
+</div>
+
+<div id="l-footer">
+<hr>
+<address><a href="../index.htm">LiuLian/1.1.11</a></address>
+</div>
+</body>
+</html>

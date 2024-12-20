@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiuLian: paiga</title>
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="LiuLian: paiga">
+<meta property="og:image" content="https://kobalab.net/liulian/css/icon.png">
+<link rel="icon" href="../../css/icon.png">
+<link rel="apple-touch-icon" href="../../css/icon.png">
+<link rel="stylesheet" type="text/css" href="../../css/liulian.css">
+<style>
+body { max-width: 900px; }
+a[target]::after           { content: ' ⧉'; }
+#l-footer a[target]::after { content: '';    }
+
+.example {
+    padding: 0px 1em;
+    border: solid 1px #ccc;
+    border-radius: 8px;
+}
+.example > * { margin: 1em 0px; }
+li img {
+    vertical-align: text-bottom;
+}
+</style>
+</head>
+<body>
+<div id="l-toolbar">
+<a class="l-home" href="../../index.htm"><img src="../../css/liulian.png" alt="ホーム"></a>
+<ul>
+<li><a href="paiga-1.html?cmd=login">ログイン</a></li>
+</ul>
+<hr>
+</div>
+<link rel="author" href="http://www.hatena.ne.jp/xlc/">
+
+<h1>paiga</h1>
+
+<p>麻雀の牌画像を表示する。</p>
+
+<div class="l-contents">
+<ul>
+<li><a href="#import">インポート方法</a></li>
+<li><a href="#paiga">paiga - 麻雀の牌画像を表示する</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E4%BE%8B">使用例</a></li>
+</ul>
+</div>
+
+<h2 id="import">インポート方法</h2>
+
+<pre>#import(paiga)</pre>
+
+<h2 id="paiga">paiga - 麻雀の牌画像を表示する</h2>
+
+<dl>
+<dt>&amp;paiga(サイズ){牌姿};</dt>
+</dl>
+
+<p><strong>牌姿</strong> を牌画像に変換します。</p>
+
+<ul>
+<li><kbd>m</kbd>: 萬子、<kbd>p</kbd>: 筒子、<kbd>s</kbd>: 索子、<kbd>z</kbd>: 字牌。<span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/man1.gif" width="24" height="34" alt="m1"></span> は <kbd>m1</kbd>、<span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/hatu.gif" width="24" height="34" alt="z6"></span> は <kbd>z6</kbd>。</li>
+<li>赤牌は <kbd>0</kbd> で表す。<span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/pin5red.gif" width="24" height="34" alt="p0"></span> は <kbd>p0</kbd>。</li>
+<li>同じ色が連続するときは <kbd>m</kbd> <kbd>p</kbd> <kbd>s</kbd> <kbd>z</kbd> を省略できる。<span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/man1.gif" width="24" height="34" alt="m1"><img src="../../../paiga/man2.gif" width="24" height="34" alt="m2"><img src="../../../paiga/man3.gif" width="24" height="34" alt="m3"><img src="../../../paiga/pin4.gif" width="24" height="34" alt="p4"><img src="../../../paiga/pin5.gif" width="24" height="34" alt="p5"><img src="../../../paiga/pin6.gif" width="24" height="34" alt="p6"><img src="../../../paiga/sou7.gif" width="24" height="34" alt="s7"><img src="../../../paiga/sou8.gif" width="24" height="34" alt="s8"><img src="../../../paiga/sou9.gif" width="24" height="34" alt="s9"></span> は <kbd>m123p456s789</kbd> としてもよい。</li>
+<li>横向きの牌には <kbd>-</kbd> を付加する。<span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/ysou1.gif" width="34" height="24" alt="s1-"><img src="../../../paiga/sou2.gif" width="24" height="34" alt="s2"><img src="../../../paiga/sou3.gif" width="24" height="34" alt="s3"></span> は <kbd>s1-23</kbd>。</li>
+<li>加槓のように上に重ねる牌には <kbd>=</kbd> を付加する。<span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/man5.gif" width="24" height="34" alt="m5"><img src="../../../paiga/man5.gif" width="24" height="34" alt="m5"><span style="display:inline-block;width:34px"><img src="../../../paiga/yman5.gif" width="34" height="24" style="vertical-align:bottom;display:block" alt="m5="><img src="../../../paiga/yman5red.gif" width="34" height="24" alt="m0-"></span></span> は <kbd>m555=0-</kbd>。</li>
+<li>裏向きの牌は <kbd>_</kbd> で表す。<span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/ura.gif" width="24" height="34" alt="_"><img src="../../../paiga/nan.gif" width="24" height="34" alt="z2"><img src="../../../paiga/nan.gif" width="24" height="34" alt="z2"><img src="../../../paiga/ura.gif" width="24" height="34" alt="_"></span> は <kbd>_z22_</kbd>。</li>
+<li>空白文字は連続しても1つにまとめられないので幅の調整に利用できる。</li>
+</ul>
+
+<p><strong>サイズ</strong> には <kbd>L</kbd> (大)、<kbd>M</kbd> (中)、<kbd>S</kbd> (小)、もしくは <kbd>24x34</kbd> のような具体的な数値での指定ができます。</p>
+
+<h2 id="使用例">使用例</h2>
+
+<pre>#import(paiga)
+
+&amp;paiga{s067z1 z1};(ツモ) &amp;paiga{p2-13}; &amp;paiga{z66=6-6}; &amp;paiga{_z77_}; &amp;paiga{  };(ドラ)&amp;paiga{m1};</pre>
+
+<div class="example">
+<p><span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/sou5red.gif" width="24" height="34" alt="s0"><img src="../../../paiga/sou6.gif" width="24" height="34" alt="s6"><img src="../../../paiga/sou7.gif" width="24" height="34" alt="s7"><img src="../../../paiga/ton.gif" width="24" height="34" alt="z1"> <img src="../../../paiga/ton.gif" width="24" height="34" alt="z1"></span>(ツモ) <span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/ypin2.gif" width="34" height="24" alt="p2-"><img src="../../../paiga/pin1.gif" width="24" height="34" alt="p1"><img src="../../../paiga/pin3.gif" width="24" height="34" alt="p3"></span> <span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/hatu.gif" width="24" height="34" alt="z6"><span style="display:inline-block;width:34px"><img src="../../../paiga/yhatu.gif" width="34" height="24" style="vertical-align:bottom;display:block" alt="z6="><img src="../../../paiga/yhatu.gif" width="34" height="24" alt="z6-"></span><img src="../../../paiga/hatu.gif" width="24" height="34" alt="z6"></span> <span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/ura.gif" width="24" height="34" alt="_"><img src="../../../paiga/tyun.gif" width="24" height="34" alt="z7"><img src="../../../paiga/tyun.gif" width="24" height="34" alt="z7"><img src="../../../paiga/ura.gif" width="24" height="34" alt="_"></span> <span class="l-mod-paiga" style="white-space:pre;">  </span>(ドラ)<span class="l-mod-paiga" style="white-space:pre;"><img src="../../../paiga/man1.gif" width="24" height="34" alt="m1"></span></p>
+</div>
+
+<div class="l-nav">
+<div class="l-nav-prev"><a href="pinyin.html">pinyin</a></div>
+<div class="l-nav-top"><a href="paiga.html">外部モジュール</a></div>
+</div>
+
+<div id="l-footer">
+<hr>
+<address><a href="../../index.htm">LiuLian/1.1.11</a></address>
+</div>
+</body>
+</html>

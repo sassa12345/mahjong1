@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiuLian: インストールと起動</title>
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="LiuLian: インストールと起動">
+<meta property="og:image" content="https://kobalab.net/liulian/css/icon.png">
+<link rel="icon" href="../css/icon.png">
+<link rel="apple-touch-icon" href="../css/icon.png">
+<link rel="stylesheet" type="text/css" href="../css/liulian.css">
+<style>
+body { max-width: 900px; }
+a[target]::after           { content: ' ⧉'; }
+#l-footer a[target]::after { content: '';    }
+
+</style>
+</head>
+<body>
+<div id="l-toolbar">
+<a class="l-home" href="../index.htm"><img src="../css/liulian.png" alt="ホーム"></a>
+<ul>
+<li><a href="install-1.html?cmd=login">ログイン</a></li>
+</ul>
+<hr>
+</div>
+<link rel="author" href="http://www.hatena.ne.jp/xlc/">
+
+<h1>インストールと起動</h1>
+
+<div class="l-contents">
+<ul>
+<li><a href="#l-sec.1">インストール</a></li>
+<li><a href="#l-sec.2">起動</a></li>
+<li><a href="#l-sec.3">ユーザー登録</a></li>
+</ul>
+</div>
+
+<h2 id="l-sec.1">インストール</h2>
+
+<p>npm でインストールします。</p>
+
+<pre>$ npm i -g @kobalab/liulian</pre>
+
+<h2 id="l-sec.2">起動</h2>
+
+<p>コンテンツや設定を保存するディレクトリを指定して起動します。</p>
+
+<pre>$ liulian ~/Documents/LiuLian/</pre>
+
+<p>デフォルトではポート番号 3571 で起動します。これを変えたい場合は <kbd>--port</kbd> オプションを使用します。</p>
+
+<pre>$ sudo /usr/local/bin/node /usr/local/bin/liulian --port=80 /var/liulian/</pre>
+
+<h2 id="l-sec.3">ユーザー登録</h2>
+
+<p><a href="http://127.0.0.1:3571" target="_blank">http://127.0.0.1:3571</a> にアクセスすると以下の画面が表示されます<sup class="l-footnote"><a id="l-noteref.1" href="#l-footnote.1" title="--port でポート番号を変えた場合はそこにアクセスしてください">*1</a></sup>ので、ログイン名とパスワードを入力して「登録」ボタンを押下します。</p>
+
+<p style="text-align: center"><img src="adduser.png" alt="ユーザー登録画面" style="width:600px"></p>
+
+<p>以下の画面が表示されればユーザー登録は完了です。</p>
+
+<p style="text-align: center"><img src="folder.png" alt="初期画面" style="width:600px"></p>
+
+<p>続いて <a href="contents.html">コンテンツを作成</a> します。</p>
+
+<div class="l-nav">
+<div class="l-nav-next"><a href="contents.html">コンテンツ作成</a></div>
+<div class="l-nav-top"><a href="../index.htm#documents">目次</a></div>
+</div>
+
+<div class="l-footnote">
+<ol>
+<li><a id="l-footnote.1" href="#l-noteref.1">^</a> <code>--port</code> でポート番号を変えた場合はそこにアクセスしてください</li>
+</ol>
+</div>
+
+<div id="l-footer">
+<hr>
+<address><a href="../index.htm">LiuLian/1.1.11</a></address>
+</div>
+</body>
+</html>

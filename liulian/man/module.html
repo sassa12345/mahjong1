@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiuLian: モジュール</title>
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="LiuLian: モジュール">
+<meta property="og:image" content="https://kobalab.net/liulian/css/icon.png">
+<link rel="icon" href="../css/icon.png">
+<link rel="apple-touch-icon" href="../css/icon.png">
+<link rel="stylesheet" type="text/css" href="../css/liulian.css">
+<style>
+body { max-width: 900px; }
+a[target]::after           { content: ' ⧉'; }
+#l-footer a[target]::after { content: '';    }
+
+dt { font-family: Verdana; }
+</style>
+</head>
+<body>
+<div id="l-toolbar">
+<a class="l-home" href="../index.htm"><img src="../css/liulian.png" alt="ホーム"></a>
+<ul>
+<li><a href="module-1.html?cmd=login">ログイン</a></li>
+</ul>
+<hr>
+</div>
+<link rel="author" href="http://www.hatena.ne.jp/xlc/">
+
+<h1>モジュール</h1>
+
+<div class="l-contents">
+<ul>
+<li><a href="#l-sec.1">概要</a></li>
+<li><a href="#title">title - HTMLのタイトルを指定する</a></li>
+<li><a href="#contents">contents - 目次を作成する</a></li>
+<li><a href="#nav">nav - ナビゲーション用のリンクを生成する</a></li>
+<li><a href="#footnote">footnote - 脚注を表示する</a></li>
+<li><a href="#include">include - 別のファイルを読み込む</a></li>
+<li><a href="#img">img - 画像を埋め込む</a></li>
+<li><a href="#color">color - 文字の色を変える</a></li>
+<li><a href="#size">size - 文字の大きさを変える</a></li>
+<li><a href="#br">br - 改行する</a></li>
+<li><a href="#clear">clear - 文字の回り込みを解除する</a></li>
+<li><a href="#class">class - スタイルシート用のクラスを定義する</a></li>
+<li><a href="#style">style - スタイルシートを指定する</a></li>
+<li><a href="#icon">icon - アイコンを指定する</a></li>
+<li><a href="#lang">lang - コンテンツの言語を指定する</a></li>
+<li><a href="#redirect">redirect - 指定したURLにリダイレクトする</a></li>
+<li><a href="#script">script - JavaScriptを使う</a></li>
+<li><a href="#_">_ - HTMLタグを使う</a></li>
+<li><a href="#import">import - 外部モジュールをインポートする</a></li>
+</ul>
+</div>
+
+<h2 id="l-sec.1">概要</h2>
+
+<p><strong>モジュール</strong> は、<a href="text-liulian.html">LiuLian記法</a>ではできない細かい指定や、複雑な機能を実行します。</p>
+
+<p>モジュールには以下の2つの形式があります。</p>
+
+<h3 id="block">ブロックモジュール</h3>
+
+<p>行単位に記述します。</p>
+
+<pre>#モジュール名(パラメータ)&lt;&lt;EOD
+内容...
+内容...
+EOD</pre>
+
+<p><strong>内容</strong> にはモジュールを含む任意のLiuLian記法を記述できます。
+<strong>EOD</strong> には任意の文字が使用できますので、目印となる名前をつけるとよいでしょう。</p>
+
+<h3 id="inline">インラインモジュール</h3>
+
+<p>1行の中に記述します。</p>
+
+<pre>&amp;モジュール名(パラメータ){内容};</pre>
+
+<p>複数行にまたがっての記述はできません。
+<strong>内容</strong> にはインラインモジュールも記述できます。</p>
+
+<hr>
+
+<h2 id="title">title - HTMLのタイトルを指定する</h2>
+
+<dl>
+<dt>#title(タイトル)</dt>
+</dl>
+
+<p>文書のタイトル <strong>(<code>h1</code>)</strong> の代わりに、指定した <strong>タイトル</strong> をHTMLのタイトル <strong>(<code>title</code>)</strong> として使用します。
+<strong>タイトル</strong> 中に <kbd>$$</kbd> を記述すると、その位置に文書のタイトルを挿入します。</p>
+
+<h2 id="contents">contents - 目次を作成する</h2>
+
+<dl>
+<dt>#contents(開始レベル,終了レベル,区切り文字)</dt>
+</dl>
+
+<p>指定された位置に目次を作成します。
+<strong>開始レベル</strong>、<strong>終了レベル</strong> を指定した場合は、その範囲のレベルの見出しのみ目次とします。
+<strong>区切り文字</strong> を指定した場合は、終了レベルを区切り文字で区切って一列に表示します。</p>
+
+<h2 id="nav">nav - ナビゲーション用のリンクを生成する</h2>
+
+<dl>
+<dt>#nav(URL[,title,top])&lt;&lt;EOD</dt>
+</dl>
+
+<p><strong>URL</strong> で指定されたページ内のリンクを順にたどるナビゲーションを生成します。
+同一サーバ内の <a href="text-liulian.html">LiuLian形式テキスト</a> のみが指定可能です。
+目次へのリンクを作成する場合は <strong>title</strong> に名称、<strong>top</strong> にURLを指定してください。</p>
+
+<h2 id="footnote">footnote - 脚注を表示する</h2>
+
+<dl>
+<dt>#footnote</dt>
+</dl>
+
+<p>指定された位置に脚注を表示します。</p>
+
+<h2 id="include">include - 別のファイルを読み込む</h2>
+
+<dl>
+<dt>#include(URL)</dt>
+</dl>
+
+<p>指定された位置に <strong>URL</strong> で指定されたファイルの内容を展開します。
+同一サーバ内の <a href="text-liulian.html">LiuLian形式テキスト</a> のみがインクルード可能です。</p>
+
+<h2 id="img">img - 画像を埋め込む</h2>
+
+<dl>
+<dt>#img(URL, 代替文字列, オプション...)</dt>
+<dt>&amp;img(URL, 代替文字列, オプション...);</dt>
+</dl>
+
+<p><strong>URL</strong> で指定された画像を埋め込みます <strong>(<code>img</code>)</strong>。
+<strong>代替文字列</strong> は <strong><code>alt</code></strong> 属性になります。</p>
+
+<p><strong>オプション</strong> には以下が指定できます。
+複数のオプションを指定する場合は、カンマで区切ってください。</p>
+
+<ul>
+<li><kbd>link</kbd> -
+画像へのリンク <strong>(<code>a</code>)</strong> を作成します。</li>
+<li><kbd>left</kbd>, <kbd>right</kbd> -
+画像を左もしくは右に寄せて、後に続く文を回り込ませます(CSSの <strong><code>float:</code></strong> プロパティ)。</li>
+<li><kbd>top</kbd>, <kbd>middle</kbd>, <kbd>bottom</kbd> -
+画像と文の縦方向の位置合わせの基準点を指定します(CSSの <strong><code>vertical-align:</code></strong> プロパティ)。</li>
+<li><kbd>b<em>数値</em></kbd> -
+画像の枠線の幅 <strong>(<code>border-width:</code>)</strong> をピクセル単位で指定します。</li>
+<li><kbd>w<em>数値</em></kbd> -
+画像の幅 <strong>(<code>width:</code>)</strong> をピクセル単位で指定します。</li>
+<li><kbd>h<em>数値</em></kbd> -
+画像の高さ <strong>(<code>height:</code>)</strong> をピクセル単位で指定します。</li>
+<li><kbd><em>数値</em>x<em>数値</em></kbd> -
+画像の幅と高さを同時に指定します。</li>
+<li><kbd><em>プロパティ</em>:<em>値</em></kbd> -
+CSSのプロパティと値を指定します。</li>
+</ul>
+
+<h2 id="color">color - 文字の色を変える</h2>
+
+<dl>
+<dt>&amp;color(文字色,背景色,縁取色){文字列};</dt>
+</dl>
+
+<p><strong>文字列</strong> の <strong>文字色</strong>、<strong>背景色</strong>、<strong>縁取色</strong> を指定します。
+それぞれの色は省略できます。</p>
+
+<p>色には以下の形式が使えます。</p>
+
+<ul>
+<li>red, blue といったCSSで指定可能な色名。</li>
+<li>#369, #336699 といったCSSで指定可能な16進数形式。</li>
+</ul>
+
+<h2 id="size">size - 文字の大きさを変える</h2>
+
+<dl>
+<dt>#size(サイズ)&lt;&lt;EOD</dt>
+<dt>&amp;size(サイズ){文字列};</dt>
+</dl>
+
+<p><strong>文字列</strong> のフォントサイズを指定します。
+<strong>サイズ</strong> には以下の形式が使えます。</p>
+
+<ul>
+<li>12px - ピクセル単位の指定。</li>
+<li>120% - パーセンテージの指定。</li>
+<li>1.5em, 2em - em単位の指定。</li>
+</ul>
+
+<h2 id="br">br - 改行する</h2>
+
+<dl>
+<dt>&amp;br;</dt>
+</dl>
+
+<p>指定された位置で改行します。</p>
+
+<h2 id="clear">clear - 文字の回り込みを解除する</h2>
+
+<dl>
+<dt>#clear(オプション)</dt>
+<dt>#clear</dt>
+<dt>&amp;clear(オプション);</dt>
+<dt>&amp;clear;</dt>
+</dl>
+
+<p>imgモジュールなどで指定された文字の回り込みを解除します。</p>
+
+<p><strong>オプション</strong> には<kbd>left</kbd>もしくは<kbd>right</kbd>が指定できます(CSSの <strong><code>clear:</code></strong> プロパティ)。
+オプションを省略した場合は、左右両方の回り込みを解除します(CSSの <kbd>both</kbd>)。</p>
+
+<h2 id="class">class - スタイルシート用のクラスを定義する</h2>
+
+<dl>
+<dt>#class(クラス名)&lt;&lt;EOD</dt>
+<dt>&amp;class(クラス名){文字列};</dt>
+</dl>
+
+<p>ブロックモジュールの形式の場合、以下のHTMLに変換されます。</p>
+
+<pre>&lt;div class=&quot;クラス名&quot;&gt; ... &lt;/div&gt;</pre>
+
+<p>インラインモジュールの形式の場合は、以下のHTMLです。</p>
+
+<pre>&lt;span class=&quot;クラス名&quot;&gt;文字列&lt;/span&gt;</pre>
+
+<h2 id="style">style - スタイルシートを指定する</h2>
+
+<dl>
+<dt>#style(URL[, media])</dt>
+<dt>#style&lt;&lt;EOD</dt>
+</dl>
+
+<p><strong>URL</strong> が指定された場合、そのURLを外部スタイルシートのURLとします。
+外部スタイルシートは複数指定できます。
+<strong>media</strong> にスタイルシートの <strong><code>media</code></strong> 属性を指定することもできます。</p>
+
+<p><strong>内容</strong> が指定されている場合は、
+内容をHTML内部にスタイルシートとして展開します。</p>
+
+<h2 id="icon">icon - アイコンを指定する</h2>
+
+<dl>
+<dt>#icon(URL)</dt>
+</dl>
+
+<p><strong>URL</strong> で指定された画像をアイコン(favicon)として使用します。</p>
+
+<h2 id="lang">lang - コンテンツの言語を指定する</h2>
+
+<dl>
+<dt>#lang(言語)</dt>
+<dt>#lang(言語)&lt;&lt;EOD</dt>
+<dt>&amp;lang(言語){内容};</dt>
+</dl>
+
+<p><strong>言語</strong> をコンテンツの言語とします。
+<strong>言語</strong> には、<kbd>ja</kbd>, <kbd>en-US</kbd> といった言語タグを指定してください。
+<strong>内容</strong> を指定した場合は、内容の部分のコンテンツの言語を指定します。</p>
+
+<h2 id="redirect">redirect - 指定したURLにリダイレクトする</h2>
+
+<dl>
+<dt>#redirect(URL[, 秒数])</dt>
+</dl>
+
+<p><strong>URL</strong> で指定したURLに <strong>秒数</strong> 後にリダイレクトします。
+<strong>秒数</strong> を省略した場合は、即座にリダイレクトします。</p>
+
+<h2 id="script">script - JavaScriptを使う</h2>
+
+<dl>
+<dt>#script(URL)</dt>
+<dt>#script&lt;&lt;EOD</dt>
+</dl>
+
+<p><strong>URL</strong> で指定したJavaScriptを読み込みます。
+<strong>内容</strong> を指定した場合は、内容をJavaScriptのコードとして展開します。</p>
+
+<h2 id="_">_ - HTMLタグを使う</h2>
+
+<dl>
+<dt>#_(タグ名 属性)&lt;&lt;EOD</dt>
+<dt>#_(タグ名 属性)</dt>
+<dt>&amp;_(タグ名 属性){内容};</dt>
+<dt>&amp;_(タグ名 属性);</dt>
+</dl>
+
+<p>自由にHTMLのタグを埋め込むことができます。</p>
+
+<p><strong>内容</strong> が指定された場合は以下に変換します。</p>
+
+<pre>&lt;タグ名 属性&gt;内容&lt;/タグ名&gt;</pre>
+
+<p><strong>内容</strong> が指定されていない場合は以下に変換します。</p>
+
+<pre>&lt;タグ名 属性&gt;</pre>
+
+<p><strong>属性</strong> は、<kbd>属性名=&quot;属性値&quot;</kbd> の形式で、複数指定できます。</p>
+
+<h2 id="import">import - 外部モジュールをインポートする</h2>
+
+<dl>
+<dt>#import(モジュール名)</dt>
+</dl>
+
+<p><strong>モジュール名</strong> で指定した<a href="modules/index.htm">外部モジュール</a>をインポートし、使用できるようにします。</p>
+
+<div class="l-nav">
+<div class="l-nav-prev"><a href="text-liulian.html">LiuLian記法</a></div>
+<div class="l-nav-next"><a href="modules/index.htm">外部モジュール</a></div>
+<div class="l-nav-top"><a href="../index.htm#documents">目次</a></div>
+</div>
+
+<div id="l-footer">
+<hr>
+<address><a href="../index.htm">LiuLian/1.1.11</a></address>
+</div>
+</body>
+</html>

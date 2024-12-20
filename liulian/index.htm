@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiuLian</title>
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="LiuLian">
+<meta property="og:image" content="https://kobalab.net/liulian/css/icon.png">
+<link rel="icon" href="css/icon.png">
+<link rel="apple-touch-icon" href="css/icon.png">
+<link rel="stylesheet" type="text/css" href="css/liulian.css">
+<style>
+body { max-width: 900px; }
+a[target]::after           { content: ' ⧉'; }
+#l-footer a[target]::after { content: '';    }
+
+h1 {
+    margin-top: 32px;
+    min-height: 36px;
+}
+h1     { margin-bottom: 0; }
+.nav p { margin: 0; }
+.nav a[target]::after { content: none; }
+</style>
+</head>
+<body>
+<div id="l-toolbar">
+<a class="l-home" href="index.htm"><img src="css/liulian.png" alt="ホーム"></a>
+<ul>
+<li><a href="index-1.htm?cmd=login">ログイン</a></li>
+</ul>
+<hr>
+</div>
+<link rel="author" href="http://www.hatena.ne.jp/xlc/">
+
+<p><a href="index.htm"><img src="css/icon.png" alt="icon" style="float:left;height:52px"><img src="css/liulian.png" alt="liulian" style="float:left;height:52px"></a></p>
+
+<meta property="og:description" content="Node.jsで動作するWebサイト作成ツール">
+
+<div class="main">
+<h1></h1>
+
+<div class="nav">
+<p style="text-align: right"><a href="../index.htm">HOME</a> |
+<a href="https://github.com/kobalab/LiuLian" target="_blank">GitHub</a> |
+<a href="https://github.com/kobalab/LiuLian#readme" target="_blank">README</a> |
+<a href="https://github.com/kobalab/LiuLian/blob/master/LICENSE" target="_blank">LICENSE</a> |
+<a href="https://github.com/kobalab/LiuLian/blob/master/ChangeLog.md" target="_blank">ChangeLog</a></p>
+</div>
+
+<img src="../wikipedia/commons/thumb/b/bc/Durian_in_black.jpg/440px-Durian_in_black.jpg" alt="LiuLian/榴莲/ドリアン/durian" style="float:right;margin:10px 0 10px 10px;max-width:30%;border-radius:4px"><dl>
+<dt><span lang="zh-CN"><a href="https://zh.wikipedia.org/wiki/%E6%A6%B4%E6%A2%BF" target="_blank">榴莲</a> (<span class="l-mod-pinyin">liúlián</span>)</span></dt>
+<dd><span lang="zh-CN">常绿乔木，叶子长椭圆形。果实也叫榴莲，球形，表面多有大木质刺，果肉鲜美，为热带著名水果。某些地区也写作“榴梿”。</span></dd>
+<dt><a href="https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%AA%E3%82%A2%E3%83%B3" target="_blank">ドリアン</a></dt>
+<dd>パンヤ科の常緑高木。マレー半島・スマトラ原産。葉は長楕円形革質，花は黄白色五弁で数個ずつ集まって付く。果実は長さ約30センチメートルの楕円形で，外殻に硬いとげ状の突起がある。果肉はクリーム状で，濃厚な甘味と酸味少々と独特の香りがあり美味で，「果物の王」といわれる。</dd>
+</dl>
+
+<div lang="en">
+<dl>
+<dt><a href="https://en.wikipedia.org/wiki/Durian" target="_blank">durian</a></dt>
+<dd>a large, oval, tropical fruit with a hard skin covered in sharp points, yellow, orange, or red flesh, and a very strong smell</dd>
+</dl>
+</div>
+
+<dl>
+<dt><a href="index.htm">LiuLian</a></dt>
+<dd><a href="https://blog.kobalab.net/entry/2021/12/31/201112" target="_blank"><img src="../xiumai/theme/xiumai.png" alt="XiuMai" style="height:1.4em;vertical-align:text-bottom"></a>
+の後継。Node.jsで動作するWebサイト作成ツール。</dd>
+</dl>
+
+<hr>
+
+<h2 id="documents">Documents</h2>
+
+<ul>
+<li><a href="man/install.html">インストールと起動</a></li>
+<li><a href="man/contents.html">コンテンツ作成</a></li>
+<li><a href="man/text-liulian.html">LiuLian記法</a></li>
+<li><a href="man/module.html">モジュール</a></li>
+<li><a href="man/modules/index.htm">外部モジュール</a></li>
+<li><a href="man/readme%26index.html">README と index</a></li>
+<li><a href="man/head%26tail.html">HEAD と TAIL</a></li>
+<li><a href="man/proxy-setting.html">リバースプロキシを使う</a></li>
+<li><a href="man/git.html">Gitで自動バックアップする</a></li>
+</ul>
+
+<hr>
+
+<h2 id="l-sec.2">ToDo</h2>
+
+<ul>
+<li>編集時にプレビューできるようにする</li>
+</ul>
+
+<h2 id="l-sec.3">Done</h2>
+
+<ul>
+<li><a href="man/contents.html#l-sec.5">Markdown記法</a>に対応する <em>(v1.0 で対応)</em></li>
+<li>JavaScriptを編集可能にする <em>(v1.0 で対応)</em></li>
+<li><a href="man/modules/index.htm">カスタムモジュール</a>に対応する <em>(v0.9 で対応)</em></li>
+<li><a href="man/git.html">自動バックアップにより版管理</a>できるようにする <em>(v0.8 で対応)</em></li>
+<li>スマホ用のスタイルシートを作る <em>(v0.7 で対応)</em></li>
+<li><a href="man/head%26tail.html">HEAD/TAIL</a> に対応する <em>(v0.7 で対応)</em></li>
+<li><del>Expressのミドルウェアとして使えるようにする</del> <strong>(却下)</strong></li>
+<li><a href="man/install.html#l-sec.2">初回起動時に作業ディレクトリを作成する</a>ようにする <em>(v0.6 で対応)</em></li>
+<li>画面から<a href="man/install.html#l-sec.3">ユーザ登録</a>できるようにする <em>(v0.6 で対応)</em></li>
+<li><a href="man/readme%26index.html">README/index</a> に対応する <em>(v0.5 で対応)</em></li>
+<li><a href="man/module.html">モジュール</a>を使えるようにする <em>(v0.4 で対応)</em></li>
+<li><a href="man/text-liulian.html">LiuLian記法</a> を定義する <em>(v0.4 で対応)</em></li>
+<li><a href="man/contents.html">コンテンツハンドラ</a>を作る <em>(v0.3 で対応)</em></li>
+<li><a href="index-1.htm?cmd=login">認証機能</a>を作る <em>(v0.2 で対応)</em></li>
+<li><a href="index.htm" target="_blank">デモ版</a>を稼働させる</li>
+<li><a href="https://github.com/kobalab/LiuLian/blob/master/lib/util/locale.js" target="_blank">国際化対応のライブラリ</a>を作る</li>
+<li>ロゴとアイコンを作る</li>
+<li><a href="http://github.com/kobalab" target="_blank">GitHub</a> に<a href="https://github.com/kobalab/LiuLian" target="_blank">リポジトリ</a>を作る</li>
+</ul>
+</div>
+
+<div id="l-footer">
+<hr>
+<address><a href="index.htm">LiuLian/1.1.11</a></address>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiuLian: コンテンツ作成</title>
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="LiuLian: コンテンツ作成">
+<meta property="og:image" content="https://kobalab.net/liulian/css/icon.png">
+<link rel="icon" href="../css/icon.png">
+<link rel="apple-touch-icon" href="../css/icon.png">
+<link rel="stylesheet" type="text/css" href="../css/liulian.css">
+<style>
+body { max-width: 900px; }
+a[target]::after           { content: ' ⧉'; }
+#l-footer a[target]::after { content: '';    }
+
+.example img {
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    margin: 5px 0 10px 10px;
+}
+</style>
+</head>
+<body>
+<div id="l-toolbar">
+<a class="l-home" href="../index.htm"><img src="../css/liulian.png" alt="ホーム"></a>
+<ul>
+<li><a href="contents-1.html?cmd=login">ログイン</a></li>
+</ul>
+<hr>
+</div>
+<link rel="author" href="http://www.hatena.ne.jp/xlc/">
+
+<h1>コンテンツ作成</h1>
+
+<div class="example">
+<div class="l-contents">
+<ul>
+<li><a href="#l-sec.1">編集を開始する</a></li>
+<li><a href="#l-sec.2">HTMLを編集する</a></li>
+<li><a href="#l-sec.3">画像をアップロードする</a></li>
+<li><a href="#l-sec.4">LiuLian記法を使う</a></li>
+<li><a href="#l-sec.5">Markdown記法を使う</a></li>
+<li><a href="#l-sec.6">編集を終了する</a></li>
+<li><a href="#l-sec.7">ログアウトする</a></li>
+</ul>
+</div>
+
+<h2 id="l-sec.1">編集を開始する</h2>
+
+<ol>
+<li>画面右上の <strong>編集</strong> をクリックします。<br>
+<img src="edit-start.png" alt="「編集」をクリック" style="float:right;width:120px">
+<br style="clear:both"></li>
+<li>編集モードに入ります
+<img src="edit-mode.png" alt="編集モードに入る" style="float:right;width:600px"></li>
+</ol>
+
+<div style="clear:both"></div>
+
+<h2 id="l-sec.2">HTMLを編集する</h2>
+
+<ol>
+<li><strong>新規ファイル</strong> の <strong>ファイル名</strong> の欄にファイル名を入力し、<strong>追加</strong> ボタンをクリックします。拡張子は html にしてください。<br>
+<img src="edit-html-1.png" alt="ファイル名を入力し「追加」をクリック" style="float:right;width:300px">
+<br style="clear:both"></li>
+<li>テキスト入力フォームが表示されるので、HTMLを入力し、<strong>保存</strong> ボタンをクリックします。<br>
+<img src="edit-html-2.png" alt="HTMLを入力し「保存」をクリック" style="float:right;width:600px">
+<br style="clear:both"></li>
+<li>フォルダ画面に戻ります。編集したHTMLファイルはフォルダに追加されています。<br>
+<img src="edit-html-3.png" alt="フォルダ画面に戻る" style="float:right;width:600px"></li>
+</ol>
+
+<div style="clear:both"></div>
+
+<h2 id="l-sec.3">画像をアップロードする</h2>
+
+<ol>
+<li><strong>新規ファイル</strong> のファイルアップロードのアイコンをクリックし、ブラウザのポップアップ画面からファイルを選択します。<br>
+<img src="upload-1.png" alt="ファイルアップロードのアイコンをクリック" style="float:right;width:300px">
+<br style="clear:both"></li>
+<li>ファイル名は自動入力されますが、変更することも可能です。<br>
+<img src="upload-2.png" alt="ファイル名を変更" style="float:right;width:300px">
+<br style="clear:both"></li>
+<li><strong>追加</strong> ボタンをクリックします。<br>
+<img src="upload-3.png" alt="「追加」をクリック" style="float:right;width:300px">
+<br style="clear:both"></li>
+<li>フォルダ画面に戻ります。アップロードしたファイルはフォルダに追加されています。<br>
+<img src="upload-4.png" alt="フォルダ画面に戻る" style="float:right;width:600px"></li>
+</ol>
+
+<div style="clear:both"></div>
+
+<h2 id="l-sec.4">LiuLian記法を使う</h2>
+
+<ol>
+<li>拡張子のないファイル名を入力すると、<strong>LiuLian形式テキスト</strong> となります。</li>
+<li>LiuLian形式テキストでは <a href="text-liulian.html">LiuLian記法</a> が使えます。</li>
+</ol>
+
+<h2 id="l-sec.5">Markdown記法を使う</h2>
+
+<ol>
+<li>拡張子を <kbd>.md</kbd> とすると <strong><a href="https://ja.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a> 形式テキスト</strong> となります。</li>
+</ol>
+
+<h2 id="l-sec.6">編集を終了する</h2>
+
+<ol>
+<li>画面右上の <strong>編集</strong> もしくはタイトルをクリックします。<br>
+<img src="edit-end-1.png" alt="「編集」もしくはタイトルをクリック" style="float:right;width:600px">
+<br style="clear:both"></li>
+<li>編集モードが終了し、通常のフォルダ画面に戻ります。<br>
+<img src="edit-end-2.png" alt="フォルダ画面に戻る" style="float:right;width:600px"></li>
+</ol>
+
+<div style="clear:both"></div>
+
+<h2 id="l-sec.7">ログアウトする</h2>
+
+<ol>
+<li>画面右上の <strong>ログアウト</strong> をクリックします。<br>
+<img src="logout.png" alt="「ログアウト」をクリック" style="float:right;width:120px">
+<br style="clear:both"></li>
+<li>ログアウトした状態ではフォルダ画面は表示されず、エラーとなります。これを避けるためには <a href="readme%26index-1.htmlndex#readme">README</a> ファイルを設定してください。<br>
+<img src="forbidden.png" alt="アクセス権がありません" style="float:right;width:600px"></li>
+</ol>
+
+<div style="clear:both"></div>
+</div>
+
+<div class="l-nav">
+<div class="l-nav-prev"><a href="install.html">インストールと起動</a></div>
+<div class="l-nav-next"><a href="text-liulian.html">LiuLian記法</a></div>
+<div class="l-nav-top"><a href="../index.htm#documents">目次</a></div>
+</div>
+
+<div id="l-footer">
+<hr>
+<address><a href="../index.htm">LiuLian/1.1.11</a></address>
+</div>
+</body>
+</html>

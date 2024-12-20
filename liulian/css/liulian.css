@@ -1,0 +1,484 @@
+@charset "UTF-8";
+
+html {
+    margin: 0 10px;
+}
+body {
+    font-family: "Century Gothic", "Google Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    -webkit-text-size-adjust: 100%;
+    margin: 0 auto 10px;
+    overflow-wrap: break-word;
+}
+
+a:link {
+    color: #0c0;
+}
+a:visited {
+    color: #080;
+}
+img {
+    max-width: 100%;
+}
+code, kbd, tt {
+    font-family: Menlo, Consolas, Monaco, Courier, monospace;
+    font-size: 100%;
+}
+kbd {
+    display: inline-block;
+    padding: 1px 2px;
+    background: #eee;
+    border: solid 1px #ccc;
+    border-radius: 2px;
+}
+
+h1 {
+    margin-top: 0.5em;
+    font-size: 240%;
+    border-bottom: solid 2px #080;
+}
+h2 {
+    font-size: 180%;
+    padding-left: 0.5em;
+    border-left: solid 6px #080;
+}
+h3 {
+    font-size: 150%;
+    border-bottom: solid 1px #080;
+    margin-bottom: 0.5em;
+}
+h4 {
+    font-size: 125%;
+    border-bottom: solid 1px #F1E054;
+    margin-bottom: 0.5em;
+}
+h5 {
+    font-size: 110%;
+    margin: 1em auto;
+}
+h6 {
+    font-size: 100%;
+    margin: 1em auto;
+}
+
+@media screen and (max-width: 480px) {
+
+    h1 { font-size: 180%; }
+    h2 { font-size: 150%; }
+    h3 { font-size: 125%; }
+    h4 { font-size: 110%; }
+    h5 { font-size: 100%; }
+    h6 { font-size: 100%; }
+
+    dd { margin-left: 1em; }
+    ul, ol {
+        margin-left: 0;
+        padding-left: 1.5em;
+    }
+}
+
+hr {
+    border-style: solid;
+    border-color: #F1E054;
+}
+
+dt {
+    font-weight: bold;
+}
+dd {
+    margin-bottom: 1em;
+}
+
+pre {
+    padding: 0.5em;
+    border-radius: 0.2em;
+    border: solid 1px #080;
+    background: #eee;
+    overflow: auto;
+    overflow-wrap: normal;
+    font-family: Osaka-Mono, "BIZ UDゴシック", "ＭＳ ゴシック", Monaco, Courier, monospace;
+    font-size: 100%;
+}
+
+blockquote {
+    margin: 0px 1em;
+    padding-left: 0.5em;
+    border-left: solid 2px #080;
+    opacity: 0.8;
+}
+
+table {
+    border-collapse: collapse;
+    display: block;
+    overflow: auto;
+}
+th, td {
+    border:  solid 1px #9c9;
+    padding: 2px 0.5em;
+}
+th {
+    background: #cfc;
+}
+
+sup.l-footnote a {
+    text-decoration: none;
+}
+div.l-footnote {
+    font-size: 90%;
+    border-top: solid 1px #F1E054;
+}
+div.l-footnote a[id] {
+    text-decoration: none;
+}
+
+form {
+    margin: 1em auto;
+}
+@media screen and (max-width: 640px) {
+    form {
+        font-size: 16px;
+    }
+}
+@media screen and (max-height: 640px) {
+    form {
+        font-size: 16px;
+    }
+}
+fieldset {
+    border: solid 1px #080;
+    border-radius: 4px;
+}
+input[type="text"], input[type="password"] {
+    -webkit-appearance: none;
+    padding: 2px;
+    font-family: Menlo, Consolas, Courier, monospace;
+    font-size: 100%;
+    border: solid 1px #999;
+    border-radius: 2px;
+}
+input[disabled] {
+    background: #eee;
+    opacity: 1;
+}
+textarea {
+    padding: 4px;
+    font-family: Osaka-Mono, "BIZ UDゴシック", "ＭＳ ゴシック", Monaco, Courier, monospace;
+    font-size: 100%;
+    border: solid 1px #999;
+    border-radius: 4px;
+}
+input[type="submit"] {
+    -webkit-appearance: none;
+    padding: 2px 1em;
+    background: #080;
+    color: white;
+    font-size: 100%;
+    border: solid 1px #080;
+    border-radius: 4px;
+}
+
+#l-toolbar {
+    font-size: 90%;
+    border-bottom: solid 1px #9c9;
+}
+#l-toolbar .l-home img {
+    height: 24px;
+}
+#l-toolbar ul {
+    margin: 2px;
+    float: right;
+}
+#l-toolbar::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+#l-toolbar li {
+    display: inline;
+    margin-left: 0.5em;
+}
+#l-toolbar ul a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px;
+}
+#l-toolbar ul a:link,
+#l-toolbar ul a:visited {
+    color: #090;
+}
+#l-toolbar ul a:hover {
+    color: white;
+    background: #090;
+}
+#l-toolbar hr {
+    display: none;
+}
+
+#l-footer {
+    margin-top: 1em;
+    border-top: solid 1px #9c9;
+    color: #090;
+    text-align: right;
+}
+#l-footer a {
+    text-decoration: none;
+}
+#l-footer hr {
+    display: none;
+}
+
+#l-title a {
+    text-decoration: none;
+    color: inherit;
+}
+#l-title a:hover {
+    color: #080;
+}
+
+#l-path {
+    margin: 1em auto;
+}
+
+#l-folder {
+    display: table;
+    width: 100%;
+}
+#l-folder th.l-asc,
+#l-folder th.l-desc {
+    background: #afa;
+}
+#l-folder th.l-asc a,
+#l-folder th.l-desc a {
+    background: no-repeat right center;
+    background-size: 0.6em;
+}
+#l-folder th.l-asc a {
+    background-image: url(icon-chevron-up.png);
+}
+#l-folder th.l-desc a {
+    background-image: url(icon-chevron-down.png);
+}
+#l-folder th a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+#l-folder tbody .l-time,
+#l-folder tbody .l-size {
+    text-align: right;
+}
+#l-folder td {
+    padding: 2px 1em;
+}
+
+#l-mkfile input[type="file"],
+#l-udfile input[type="file"] {
+    display: none;
+}
+#l-mkfile span,
+#l-udfile span {
+    display: inline-block;
+    cursor: pointer;
+}
+#l-mkfile img,
+#l-udfile img {
+    height: 20px;
+    padding: 4px;
+    border-radius: 4px;
+    vertical-align: middle;
+    background: #999;
+    pointer-events: none;
+}
+#l-mkfile img.l-enable,
+#l-udfile img.l-enable {
+    background: #080;
+}
+#l-mkfile input[name="filename"],
+#l-udfile input[name="filename"],
+#l-mkdir  input[name="dirname"]   {
+    width: 200px;
+}
+#l-udfile input[disable] {
+    pointer-events: none;
+    cursor: pointer;
+}
+#l-udtext textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 70vh;
+}
+#l-log .l-time {
+    text-align: right;
+}
+#l-diff {
+    border-radius: 0.2em;
+    border: solid 1px #080;
+    padding: 0;
+    background: #ddd;
+}
+#l-diff > * {
+    display: block;
+    padding: 2px 0.5em;
+    margin: 1px 0;
+    min-height: 1em;
+    font-family: Osaka-Mono, "BIZ UDゴシック", "ＭＳ ゴシック", Monaco, Courier, monospace;
+    text-decoration: none;
+    white-space: pre-wrap;
+    color: #666;
+    background: #ffe;
+}
+#l-diff .l-head {
+    color: #999;
+    background: #cdf;
+}
+#l-diff ins {
+    color: #393;
+    background: #dfd;
+}
+#l-diff del {
+    color: #c33;
+    background: #fdd;
+}
+
+.l-error {
+    color: red;
+}
+
+.l-nav {
+    margin: 1.5em auto 0.5em;
+}
+.l-nav a {
+    text-decoration: none;
+}
+.l-nav::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+.l-nav-prev {
+    text-align: left;
+    float: left;
+    width: 35%;
+}
+.l-nav-prev::before {
+    content: '≪ ';
+}
+.l-nav-next {
+    text-align: right;
+    float: right;
+    width: 35%;
+}
+.l-nav-next::after {
+    content: ' ≫';
+}
+.l-nav-top {
+    text-align: center;
+    margin: 0 35%;
+}
+@media screen and (max-width: 480px) {
+    .l-nav-prev {
+        text-align: left;
+        float: none;
+        width: auto;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .l-nav-next {
+        text-align: left;
+        float: none;
+        width: auto;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .l-nav-top {
+        margin: auto;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .l-nav-next::before {
+        content: '≫ ';
+    }
+    .l-nav-next::after {
+        content: none;
+    }
+}
+
+.footnotes {
+    font-size: 90%;
+}
+.footnotes li p {
+    margin: 0.2em auto;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #a0a1a7;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #a626a4;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e45649;
+}
+
+.hljs-literal {
+  color: #0184bb;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #50a14f;
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #c18401;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #986801;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #4078f2;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}

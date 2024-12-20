@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiuLian: README と index</title>
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="LiuLian: README と index">
+<meta property="og:image" content="https://kobalab.net/liulian/css/icon.png">
+<link rel="icon" href="../css/icon.png">
+<link rel="apple-touch-icon" href="../css/icon.png">
+<link rel="stylesheet" type="text/css" href="../css/liulian.css">
+<style>
+body { max-width: 900px; }
+a[target]::after           { content: ' ⧉'; }
+#l-footer a[target]::after { content: '';    }
+
+.example img {
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    margin: 5px 0 10px 10px;
+    max-width: 95%;
+}
+</style>
+</head>
+<body>
+<div id="l-toolbar">
+<a class="l-home" href="../index.htm"><img src="../css/liulian.png" alt="ホーム"></a>
+<ul>
+<li><a href="readme%26index-2.html?cmd=login">ログイン</a></li>
+</ul>
+<hr>
+</div>
+<link rel="author" href="http://www.hatena.ne.jp/xlc/">
+
+<h1>README と index</h1>
+
+<div class="example">
+<div class="l-contents">
+<ul>
+<li><a href="#readme">README</a></li>
+<li><a href="#index">index</a></li>
+</ul>
+</div>
+
+<p>ログインしていない状態でフォルダ画面にアクセスすると以下のようにエラーが表示されます<sup class="l-footnote"><a id="l-noteref.1" href="#l-footnote.1" title="多くの人にとってフォルダ配下のファイル一覧を閲覧されることは好ましい状況ではないでしょう">*1</a></sup>。<kbd>README</kbd> もしくは <kbd>index</kbd><sup class="l-footnote"><a id="l-noteref.2" href="#l-footnote.2" title="あるいはindex.html">*2</a></sup>というファイルを置くことにより、この動作を変更することができます。</p>
+
+<p style="text-align: center"><img src="forbidden.png" alt="アクセス権がありません" style="width:800px"></p>
+
+<h2 id="readme">README</h2>
+
+<p><kbd>README</kbd> という <a href="text-liulian.html">LiuLian記法</a> のファイルを置くことにより、以下のようにファイル一覧を表示することができます。</p>
+
+<pre>! Welcome to Liulian
+
+とりあえずファイルを置いてみました。</pre>
+
+<p style="text-align: center"><img src="readme.png" alt="READMEがある場合" style="width:800px"></p>
+
+<p>Markdown記法を使いたい場合は <kbd>README.md</kbd> というファイル名にして下さい。</p>
+
+<h2 id="index">index</h2>
+
+<p><kbd>index</kbd> という <a href="text-liulian.html">LiuLian記法</a> のファイルを置くと、ファイル一覧の代わりにその内容が表示されます。
+<kbd>index.html</kbd> というHTML形式のファイルでも同様の効果が得られます。
+Markdown記法を使う場合は <kbd>index.md</kbd> として下さい。</p>
+</div>
+
+<div class="l-nav">
+<div class="l-nav-prev"><a href="modules/index.htm">外部モジュール</a></div>
+<div class="l-nav-next"><a href="head%26tail.html">HEAD と TAIL</a></div>
+<div class="l-nav-top"><a href="../index.htm#documents">目次</a></div>
+</div>
+
+<div class="l-footnote">
+<ol>
+<li><a id="l-footnote.1" href="#l-noteref.1">^</a> 多くの人にとってフォルダ配下のファイル一覧を閲覧されることは好ましい状況ではないでしょう</li>
+<li><a id="l-footnote.2" href="#l-noteref.2">^</a> あるいは<kbd>index.html</kbd></li>
+</ol>
+</div>
+
+<div id="l-footer">
+<hr>
+<address><a href="../index.htm">LiuLian/1.1.11</a></address>
+</div>
+</body>
+</html>

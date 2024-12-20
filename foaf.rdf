@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns="http://xmlns.com/foaf/0.1/">
+
+<Person rdf:about="http://kobalab.net/foaf.rdf">
+
+	<mbox_sha1sum>c65fe4e137125e8a7dea2009efe5e2a7f2bbddc1</mbox_sha1sum>
+	<name>Satoshi Kobayashi</name>
+	<givenname>Satoshi</givenname>
+	<family_name>Kobayashi</family_name>
+	<nick>koba</nick>
+	<gender>male</gender>
+	<birthday>09-23</birthday>
+	<depiction rdf:resource="http://kobalab.net/koba.jpg"/>
+
+	<homepage rdf:resource="https://kobalab.net/"/>
+	<weblog rdf:resource="https://blog.kobalab.net/" dc:title="koba::blog"/>
+
+	<made rdf:resource="http://kobalab.net/xiumai/" dc:title="XiuMai"/>
+	<made rdf:resource="http://kobalab.net/liulian/" dc:title="LiuLian"/>
+	<made rdf:resource="http://mixi.jp/view_appli.pl?id=13833" dc:title="にゃんこすいーぱー"/>
+	<made rdf:resource="http://kobalab.net/majiang/" dc:title="電脳麻将"/>
+	<made rdf:resource="http://kobalab.net/upperhand/" dc:title="UpperHand"/>
+
+	<holdsAccount>
+		<OnlineAccount rdf:about="http://www.yk.rim.or.jp/~koba/new/">
+			<accountName>koba</accountName>
+			<accountServiceHomepage rdf:resource="http://www.rim.or.jp/" dc:title="RIMNET(Yokohama)"/>
+		</OnlineAccount>
+	</holdsAccount>
+
+	<holdsAccount>
+		<OnlineAccount rdf:about="http://profile.hatena.ne.jp/xlc/">
+			<accountName>xlc</accountName>
+			<accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" dc:title="Hatena"/>
+		</OnlineAccount>
+	</holdsAccount>
+
+	<holdsAccount>
+		<OnlineAccount rdf:about="https://id.mixi.jp/215103">
+			<accountName>215103</accountName>
+			<accountServiceHomepage rdf:resource="http://mixi.jp/" dc:title="mixi"/>
+		</OnlineAccount>
+	</holdsAccount>
+
+	<holdsAccount>
+		<OnlineAccount rdf:about="https://twitter.com/koba0367">
+			<accountName>koba0367</accountName>
+			<accountServiceHomepage rdf:resource="http://twitter.com/" dc:title="twitter"/>
+		</OnlineAccount>
+	</holdsAccount>
+
+	<holdsAccount>
+		<OnlineAccount rdf:about="https://www.facebook.com/satoshi.kobayashi2">
+			<accountName>satoshi.kobayashi2</accountName>
+			<accountServiceHomepage rdf:resource="http://www.facebook.com/" dc:title="facebook"/>
+		</OnlineAccount>
+	</holdsAccount>
+
+    <holdsAccount>
+        <OnlineAccount rdf:about="https://github.com/kobalab">
+            <accountName>kobalab</accountName>
+            <accountServiceHomepage rdf:resource="http://github.com/" dc:title="GitHub"/>
+        </OnlineAccount>
+    </holdsAccount>
+
+    <holdsAccount>
+        <OnlineAccount rdf:about="https://www.npmjs.com/~kobalab">
+            <accountName>kobalab</accountName>
+            <accountServiceHomepage rdf:resource="https://www.npmjs.com/" dc:title="npm"/>
+        </OnlineAccount>
+    </holdsAccount>
+
+</Person>
+
+</rdf:RDF>

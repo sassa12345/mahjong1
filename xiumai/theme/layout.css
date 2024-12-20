@@ -1,0 +1,23 @@
+/*
+ *  $Id: layout.css,v 1.1 2011/12/20 14:26:09 koba Exp xiumai $
+ *
+ *  Copyright(c) 2006-2011 Satoshi Kobayashi.
+ */
+
+.hidden { display: none; }
+.clear  { clear:   both; }
+body {
+    width: 780px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#footer { clear: both; }
+@media screen and (max-width: 800px) {
+    body {
+        width: auto;
+        margin-top: 0px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}

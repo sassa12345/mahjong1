@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiuLian: リバースプロキシを使う</title>
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="LiuLian: リバースプロキシを使う">
+<meta property="og:image" content="https://kobalab.net/liulian/css/icon.png">
+<link rel="icon" href="../css/icon.png">
+<link rel="apple-touch-icon" href="../css/icon.png">
+<link rel="stylesheet" type="text/css" href="../css/liulian.css">
+<style>
+body { max-width: 900px; }
+a[target]::after           { content: ' ⧉'; }
+#l-footer a[target]::after { content: '';    }
+
+</style>
+</head>
+<body>
+<div id="l-toolbar">
+<a class="l-home" href="../index.htm"><img src="../css/liulian.png" alt="ホーム"></a>
+<ul>
+<li><a href="proxy-setting-1.html?cmd=login">ログイン</a></li>
+</ul>
+<hr>
+</div>
+<link rel="author" href="http://www.hatena.ne.jp/xlc/">
+
+<h1>リバースプロキシを使う</h1>
+
+<div class="l-contents">
+<ul>
+<li><a href="#l-sec.1">LiuLian の起動オプション</a></li>
+<li><a href="#l-sec.2">Apache の設定</a></li>
+<li><a href="#l-sec.3">nginx の設定</a></li>
+</ul>
+</div>
+
+<p>Node.js 製のWebアプリケーションでは、それぞれを独立したポートで起動しておき、<a href="https://httpd.apache.org/" target="_blank">Apache</a> や <a href="https://nginx.org/" target="_blank">nginx</a> などをリバースプロキシとして連携させるのが一般的な使い方でしょう。</p>
+
+<p>LiuLianもこれを意識した設計となっており、</p>
+
+<ul>
+<li>コンテンツ内のリンク</li>
+<li>リダイレクト先のURL</li>
+<li>Cookieを有効とする path</li>
+</ul>
+
+<p>をリバースプロキシの構成に合わせて書き換える機能を持っています。</p>
+
+<p><a href="../index.htm" target="_blank">http://kobalab.net/liulian</a> を LiuLian に割り当てる場合は以下の設定を行います。<sup class="l-footnote"><a id="l-noteref.1" href="#l-footnote.1" title="LiuLian は http://127.0.0.1:3571 で動作しているものとします">*1</a></sup></p>
+
+<h2 id="l-sec.1">LiuLian の起動オプション</h2>
+
+<p><kbd>--mount=http://kobalab.net/liulian</kbd> を指定して起動します。</p>
+
+<pre><code>$ liulian --mount=http://kobalab.net/liulian ~/Documents/LiuLian</code></pre>
+
+<h2 id="l-sec.2">Apache の設定</h2>
+
+<p>mod_proxy、mod_redirect を有効にして以下の設定を行います。</p>
+
+<pre><code><span class="hljs-attribute">ProxyRequests</span> <span class="hljs-literal">Off</span>
+<span class="hljs-section">&lt;Proxy *&gt;</span>
+    <span class="hljs-attribute"><span class="hljs-nomarkup">Order</span></span> <span class="hljs-literal">deny</span>,<span class="hljs-literal">allow</span>
+    <span class="hljs-attribute"><span class="hljs-nomarkup">Allow</span></span> from <span class="hljs-literal">all</span>
+<span class="hljs-section">&lt;/Proxy&gt;</span>
+<span class="hljs-attribute">ProxyPass</span> /liulian/ http://<span class="hljs-number">127.0.0.1:3571</span>/
+<span class="hljs-attribute">Redirect</span> /liulian /liulian/</code></pre>
+
+<p><kbd>ProxyPassReverse</kbd>、<kbd>ProxyPassReverseCookiePath</kbd> の設定は不要です<sup class="l-footnote"><a id="l-noteref.2" href="#l-footnote.2" title="LiuLianが自動で行います">*2</a></sup>。
+冗長に見えますが、<kbd>Redirect</kbd> の設定は必要です<sup class="l-footnote"><a id="l-noteref.3" href="#l-footnote.3" title="これがないと LiuLianのトップのURLが / で終端せず、相対リンクが不正になってしまうため">*3</a></sup>。</p>
+
+<h2 id="l-sec.3">nginx の設定</h2>
+
+<p><kbd>server</kbd> レベルに以下の設定を行います。</p>
+
+<pre><code>    <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-Host $host;
+    <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-Server $host;
+    <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-For $remote_addr;
+
+    <span class="hljs-attribute">location</span> /liulian/ {
+        <span class="hljs-attribute">proxy_pass</span>  http://127.0.0.1:3571/;
+    }</code></pre>
+
+<p><kbd>location</kbd> と <kbd>proxy_pass</kbd> は <kbd>/</kbd> で終端させてください。</p>
+
+<div class="l-nav">
+<div class="l-nav-prev"><a href="head%26tail.html">HEAD と TAIL</a></div>
+<div class="l-nav-next"><a href="git.html">Gitで自動バックアップする</a></div>
+<div class="l-nav-top"><a href="../index.htm#documents">目次</a></div>
+</div>
+
+<div class="l-footnote">
+<ol>
+<li><a id="l-footnote.1" href="#l-noteref.1">^</a> LiuLian は http://127.0.0.1:3571 で動作しているものとします</li>
+<li><a id="l-footnote.2" href="#l-noteref.2">^</a> LiuLianが自動で行います</li>
+<li><a id="l-footnote.3" href="#l-noteref.3">^</a> これがないと LiuLianのトップのURLが <kbd>/</kbd> で終端せず、相対リンクが不正になってしまうため</li>
+</ol>
+</div>
+
+<div id="l-footer">
+<hr>
+<address><a href="../index.htm">LiuLian/1.1.11</a></address>
+</div>
+</body>
+</html>

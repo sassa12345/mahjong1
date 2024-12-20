@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UpperHand</title>
+    <meta name="description" content="囲碁に似た雰囲気の陣とりゲーム">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:title" content="UpperHand">
+    <meta property="og:description" content="囲碁に似た雰囲気の陣とりゲーム">
+    <meta property="og:image" content="https://kobalab.net/upperhand/game.png">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" type="text/css" href="upperhand-1.0.2.css">
+    <script src="upperhand-1.0.2.js" defer=""></script>
+  </head>
+  <body>
+    <h1><img src="icon.png"> UpperHand<span class="version">ver.1.0.2</span></h1>
+    <ul id="navi">
+      <li><a href="../index.htm">Home</a></li>
+      <li><a href="#pref">設定</a></li>
+      <li><a href="#rule">ルール</a></li>
+      <li><a href="https://github.com/kobalab/UpperHand" target="_blank">GitHub</a></li>
+    </ul>
+    <div id="board">
+      <div class="board"></div>
+      <div class="score"><span data-status="1"></span><span data-status="2"></span></div>
+    </div>
+    <div id="pref">
+      <h2>設定</h2>
+      <form>
+        <dl>
+          <dt>盤面</dt>
+          <dd>
+            <select name="size">
+              <option value="5">5路盤</option>
+              <option value="6">6路盤</option>
+              <option value="7">7路盤</option>
+            </select>
+          </dd>
+          <dt>相手</dt>
+          <dd>
+            <select name="level">
+              <option value="0">人間</option>
+              <option value="1">初心者</option>
+              <option value="2">初級者</option>
+              <option value="3">中級者</option>
+              <option value="4">上級者</option>
+            </select>
+          </dd>
+          <dt>手番</dt>
+          <dd>
+            <select name="turn">
+              <option value="1">先手</option>
+              <option value="2">後手</option>
+              <option value="3">(自動対戦)</option>
+            </select>
+          </dd>
+        </dl>
+        <input type="reset" value="キャンセル">
+        <input type="submit" value="設定">
+      </form>
+    </div>
+    <div id="rule">
+      <h2>ルール</h2>
+      <ol>
+        <li>
+           先手は <img src="ball1.png" alt="白玉" height="16">、後手は <img src="ball2.png" alt="青玉" height="16"> を27個ずつもっています(5路盤の場合)。</li>
+        <li>初期状態では中立の玉 <img src="ball0.png" alt="水色" height="16"> が盤中央に置かれています。</li>
+        <li>
+          プレイヤーは交互に自分の玉を盤上に置いていきます。 
+          玉を置くことができるのは、5×5の盤上か、
+          4つの玉で作られる正方形の中央のいずれかです。<br><img src="rule1.png" alt="盤上" height="80"><img src="rule2.png" alt="正方形の中央" height="80" style="margin-left:40px">
+        </li>
+        <li>
+          玉を置いたとき、その玉を含む4つの玉で新たに正方形ができて、
+          4つの玉のうちどちらかのプレイヤーの玉が3つ以上あるときには、
+          その上にそのプレイヤーの玉がボーナスとして置かれます。
+          ボーナス玉によってさらに正方形ができた場合には、
+          同様にボーナスの判定を行います。
+          手番はすべてのボーナス玉を置き終えたときに完了します。<br><img src="rule3.png" alt="ボーナス" height="120">
+        </li>
+        <li>
+          先に自分の玉を使い切ったプレイヤーが勝者となります。
+          同時に使い終えたとき(盤上にピラミッドが完成したとき)は引分けです。
+        </li>
+      </ol>
+      <form>
+        <input type="reset" value="閉じる">
+      </form>
+    </div>
+  </body>
+</html>
